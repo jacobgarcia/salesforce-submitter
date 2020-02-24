@@ -1,0 +1,19 @@
+{
+  "name": "salesforce-subimtter",
+  "version": "0.1.0",
+  "description": "Submit automatically, each friday, time reports to Salesforce.",
+  "main": "index.js",
+  "scripts": {
+    "test": "wdio"
+  },
+  "author": "Jacob Garcia",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "wdio": "^4.0.0"
+  },
+  "devDependencies": {
+    "wdio-mocha-framework": "^0.6.4",
+    "wdio-selenium-standalone-service": "0.0.12"
+  }
+}
