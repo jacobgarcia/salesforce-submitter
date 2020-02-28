@@ -10,10 +10,19 @@ describe("Submit time entries for the week", () => {
     login.submit(USERNAME, PASSWORD);
   });
 
-  it("Submits timesheet data", () => {
+  it("into the timesheet data", () => {
     browser.url("/TimeSheetEntry");
-    populateTimesheet();
+    const isPopulated = populateTimesheet();
+    expect(
+      isPopulated,
+      "Time sheet was already submitted, cannot submit it again"
+    ).to.be.true;
     timeSheet.submit();
-    browser.debug();
+    timeSheet.confirm();
+    timeSheet.ok();
+  });
+
+  it("Verifies success", () => {
+    expect(timeSheet.success.isExisting()).to.be.true;
   });
 });

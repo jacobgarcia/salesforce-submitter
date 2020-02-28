@@ -10,10 +10,15 @@ const createStrings = () => {
 };
 
 const populateTimesheet = () => {
-  const inputs = createStrings();
-  inputs.map(input => {
-    $(input).setValue(8);
-  });
+  try {
+    const inputs = createStrings();
+    inputs.map(input => {
+      $(input).setValue(8);
+    });
+    return true;
+  } catch (error) {
+    return false;
+  }
 };
 
 module.exports = populateTimesheet;
