@@ -1,3 +1,5 @@
+const notifier = require("node-notifier");
+
 exports.config = {
   //
   // ==================
@@ -144,8 +146,12 @@ exports.config = {
    * @param {Object} config wdio configuration object
    * @param {Array.<Object>} capabilities list of capabilities details
    */
-  // onPrepare: function (config, capabilities) {
-  // },
+  onPrepare: function(config, capabilities) {
+    notifier.notify({
+      title: "Salesforce Submitter",
+      message: "Started submission process"
+    });
+  },
   /**
    * Gets executed just before initialising the webdriver session and test framework. It allows you
    * to manipulate configurations depending on the capability or spec.
@@ -163,7 +169,7 @@ exports.config = {
    */
   before: function(capabilities, specs) {
     expect = require("chai").expect;
-  }
+  },
   /**
    * Runs before a WebdriverIO command gets executed.
    * @param {String} commandName hook command name
@@ -200,8 +206,14 @@ exports.config = {
    * Function to be executed after a test (in Mocha/Jasmine) or a step (in Cucumber) ends.
    * @param {Object} test test details
    */
-  // afterTest: function (test) {
-  // },
+  afterTest: function(test) {
+    if (!test.passed) {
+      notifier.notify({
+        title: "Submission failure!",
+        message: `${test.parent} ${test.title}`
+      });
+    }
+  },
   /**
    * Hook that gets executed after the suite has ended
    * @param {Object} suite suite details
@@ -241,6 +253,10 @@ exports.config = {
    * @param {Object} config wdio configuration object
    * @param {Array.<Object>} capabilities list of capabilities details
    */
-  // onComplete: function(exitCode, config, capabilities) {
-  // }
+  onComplete: function(exitCode, config, capabilities) {
+    notifier.notify({
+      title: "Salesforce Submitter",
+      message: "Submission process finished running"
+    });
+  }
 };

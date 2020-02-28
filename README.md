@@ -4,6 +4,8 @@ This tool automates submission of time report every friday to the salesforce tim
 
 It uses a cron job with the help from `node-cron` and `forever`.
 
+The tool uses node-notifier to alert you directly in your system when it's running.
+
 ## Requirements
 
 Create a .env at root directory containing the following constants:
