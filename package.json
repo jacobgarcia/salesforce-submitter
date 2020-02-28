@@ -1,6 +1,6 @@
 {
-  "name": "salesforce-subimtter",
-  "version": "0.1.0",
+  "name": "salesforce-submitter",
+  "version": "0.2.0",
   "description": "Submit automatically, each friday, time reports to Salesforce.",
   "main": "index.js",
   "scripts": {
@@ -9,14 +9,14 @@
   "author": "Jacob Garcia",
   "license": "ISC",
   "dependencies": {
-    "chai": "^4.2.0",
-    "dotenv": "^8.2.0",
-    "mocha": "^7.1.0",
-    "node-cron": "^2.0.3",
-    "wdio": "^4.0.0"
+    "chai": "4.2.0",
+    "dotenv": "8.2.0",
+    "mocha": "7.1.0",
+    "node-cron": "2.0.3",
+    "wdio": "4.0.0"
   },
   "devDependencies": {
-    "wdio-mocha-framework": "^0.6.4",
+    "wdio-mocha-framework": "0.6.4",
     "wdio-selenium-standalone-service": "0.0.12"
   }
 }
