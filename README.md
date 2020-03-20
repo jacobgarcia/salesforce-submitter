@@ -15,6 +15,12 @@ USERNAME=${YOUR_EMAIL}
 PASSWORD=${YOUR_PASSWORD}
 ```
 
+Install `forever`
+
+```javascript
+npm install -g forever
+```
+
 ## Installation
 
 To run this and forever forget about submitting your time report, just run:
